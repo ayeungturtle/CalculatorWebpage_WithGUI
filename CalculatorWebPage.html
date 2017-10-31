@@ -26,9 +26,10 @@
         }
         </style>
         <script>
-            curTotal = 0;
-            curOp = '+';
-            curNum = 0;
+            var curTotal = 0;
+            var curOp = '+';
+            var curNum = 0;
+            var loaded = true;
 
             addToField = (number) =>
             {
@@ -57,38 +58,46 @@
                 console.log(curTotal);
                 console.log(curNum);
                 console.log(curOp);
-                
+                loaded = true;
                 }
+
+            checkLoaded = () => {
+                if (loaded)
+                {
+                    document.getElementById("field").innerHTML = "";
+                }
+                loaded = false;
+            }
                  
         </script>
     </head>
     <body>
         <div class = four id = "field"></div>
         <div>
-            <button class = two onClick="addToField(1)">1</button>
-            <button class = two onClick="addToField(2)">2</button>
-            <button class = two onClick="addToField(3)">3</button>
-            <button class = one onClick="nextOp = '+'; operate();">+</button>
+            <button class = two onClick="checkLoaded(); addToField(1)">1</button>
+            <button class = two onClick="checkLoaded(); addToField(2)">2</button>
+            <button class = two onClick="checkLoaded(); addToField(3)">3</button>
+            <button class = one onClick="operate(); curOp = '+';">+</button>
             
         </div>
         <div>
-            <button class = two onClick="addToField(4)">4</button>
-            <button class = two onClick="addToField(5)">5</button>
-            <button class = two onClick="addToField(6)">6</button>
+            <button class = two onClick="checkLoaded(); addToField(4)">4</button>
+            <button class = two onClick="checkLoaded(); addToField(5)">5</button>
+            <button class = two onClick="checkLoaded(); addToField(6)">6</button>
             <button class = one onClick="operate(); curOp = '-'; ">-</button>
             
         </div>
         <div>                
-            <button class = two onClick="addToField(7)">7</button>
-            <button class = two onClick="addToField(8)">8</button>
-            <button class = two onClick="addToField(9)">9</button>
-            <button class = one>x</button>
+            <button class = two onClick="checkLoaded(); addToField(7)">7</button>
+            <button class = two onClick="checkLoaded(); addToField(8)">8</button>
+            <button class = two onClick="checkLoaded(); addToField(9)">9</button>
+            <button class = one onClick="operate(); curOp = '*'; ">x</button>
         </div>
         <div>
             <button onClick="console.log(curOp)">C</button>                 
-            <button class = two onClick="addToField(0)">0</button> 
+            <button class = two onClick="checkLoaded(); addToField(0)">0</button> 
             <button class = three>=</button>
-            <button class = one>÷</button>
+            <button class = one onClick="operate(); curOp = '/'; ">÷</button>
         </div>
     </body>
 </html>
