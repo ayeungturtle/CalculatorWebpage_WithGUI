@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <style>
+        button{
+            width: 50px;
+            height: 50px;
+        }
+        .one{
+            background-color:lightgreen
+        }
+
+        .two{
+            background-color:moccasin
+        }
+
+        .three{
+            background-color:darkgreen
+        }
+
+        .four{
+            width: 200px;
+            height: 50px;
+            text-align: right;
+        }
+        </style>
+        <script>
+            addToField = (number) =>
+            {
+                var current = document.getElementById("field").innerHTML;
+                document.getElementById("field").innerHTML = current + number;
+            }
+            
+            addition = (firstNum,secondNum)
+        </script>
+    </head>
+    <body>
+        <div class = four id = "field"></div>
+        <div>
+            <button class = two onClick="addToField(1)">1</button>
+            <button class = two onClick="addToField(2)">2</button>
+            <button class = two onClick="addToField(3)">3</button>
+            <button class = one onClick="addToField('+')">+</button>
+            
+        </div>
+        <div>
+            <button class = two onClick="addToField(4)">4</button>
+            <button class = two onClick="addToField(5)">5</button>
+            <button class = two onClick="addToField(6)">6</button>
+            <button class = one>-</button>
+            
+        </div>
+        <div>                
+            <button class = two onClick="addToField(7)">7</button>
+            <button class = two onClick="addToField(8)">8</button>
+            <button class = two onClick="addToField(9)">9</button>
+            <button class = one>x</button>
+        </div>
+        <div>
+            <button class = two onClick="addToField(0)">0</button>                 
+            <button class = two onClick="addToField(0)">0</button> 
+            <button class = three>=</button>
+            <button class = one>÷</button>
+        </div>
+    </body>
+</html>
