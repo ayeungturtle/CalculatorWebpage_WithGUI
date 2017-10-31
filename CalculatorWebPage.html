@@ -26,13 +26,40 @@
         }
         </style>
         <script>
+            curTotal = 0;
+            curOp = '+';
+            curNum = 0;
+
             addToField = (number) =>
             {
                 var current = document.getElementById("field").innerHTML;
                 document.getElementById("field").innerHTML = current + number;
             }
             
-            addition = (firstNum,secondNum)
+            operate = () => {
+                curNum = parseInt(document.getElementById("field").innerHTML);
+                switch(curOp)
+                {
+                case '+':
+                    curTotal = curTotal + curNum;
+                    break;
+                case '-':
+                    curTotal = curTotal - curNum;
+                    break;
+                case '*':
+                    curTotal = curTotal * curNum;
+                    break;
+                case '/':
+                    curTotal = curTotal / curNum;
+                    break;
+                }
+                document.getElementById("field").innerHTML = curTotal;
+                console.log(curTotal);
+                console.log(curNum);
+                console.log(curOp);
+                
+                }
+                 
         </script>
     </head>
     <body>
@@ -41,14 +68,14 @@
             <button class = two onClick="addToField(1)">1</button>
             <button class = two onClick="addToField(2)">2</button>
             <button class = two onClick="addToField(3)">3</button>
-            <button class = one onClick="addToField('+')">+</button>
+            <button class = one onClick="nextOp = '+'; operate();">+</button>
             
         </div>
         <div>
             <button class = two onClick="addToField(4)">4</button>
             <button class = two onClick="addToField(5)">5</button>
             <button class = two onClick="addToField(6)">6</button>
-            <button class = one>-</button>
+            <button class = one onClick="operate(); curOp = '-'; ">-</button>
             
         </div>
         <div>                
@@ -58,7 +85,7 @@
             <button class = one>x</button>
         </div>
         <div>
-            <button class = two onClick="addToField(0)">0</button>                 
+            <button onClick="console.log(curOp)">C</button>                 
             <button class = two onClick="addToField(0)">0</button> 
             <button class = three>=</button>
             <button class = one>÷</button>
